@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PeakMinds AI — Your Personal Board of Advisors</title>
+<meta name="description" content="Get advice from world-class entrepreneurs and investors 24/7. Alex Hormozi, Naval Ravikant, Seth Godin and 14 more — available instantly."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gold-light:#e8c97a;--dark:#0a0a0f;--dark2:#111118;--dark3:#1a1a24;--border:rgba(201,168,76,0.15);--text:#f0ede6;--muted:#8a8890;--dim:#4a4858}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,0.95);backdrop-filter:blur(12px);z-index:10}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s}.nav-links a:hover{color:var(--text)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0a0a0f;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;border:none;border-radius:10px;padding:10px 22px;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .2s}.btn-gold:hover{opacity:.9}
+
+.hero{max-width:700px;margin:0 auto;padding:100px 24px 80px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:20px;padding:5px 14px;margin-bottom:32px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,68px);font-weight:700;letter-spacing:-2px;line-height:1.1;margin-bottom:24px}
+h1 em{font-style:italic;color:var(--gold)}
+.sub{font-size:18px;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto 40px}
+.cta-group{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.btn-large{font-size:16px;padding:15px 36px}
+.btn-ghost{background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:14px;border:1px solid var(--border);border-radius:10px;padding:14px 24px;cursor:pointer;text-decoration:none;transition:all .2s}.btn-ghost:hover{border-color:rgba(201,168,76,0.4);color:var(--text)}
+.note{font-size:13px;color:var(--dim);margin-top:16px}
+
+.avatars{display:flex;justify-content:center;margin-top:48px;gap:0}
+.av{width:48px;height:48px;border-radius:50%;border:2px solid var(--dark);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text);margin-left:-10px}
+.av:first-child{margin-left:0}
+.av-more{background:var(--dark3);color:var(--muted);font-size:11px}
+
+.section{max-width:1000px;margin:0 auto;padding:80px 24px;border-top:1px solid var(--border)}
+.section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
+.section-sub{color:var(--muted);font-size:16px;margin-bottom:48px}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color .2s,transform .15s}
+.card:hover{border-color:rgba(201,168,76,0.35);transform:translateY(-2px)}
+.card-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--gold);opacity:.3;line-height:1;margin-bottom:14px}
+.card-t{font-size:17px;font-weight:600;margin-bottom:10px}
+.card-d{color:var(--muted);font-size:14px;line-height:1.6}
+
+.advisors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.adv-card{background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:12px;transition:border-color .2s}
+.adv-card:hover{border-color:rgba(201,168,76,0.35)}
+.adv-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.adv-name{font-size:13px;font-weight:600}
+.adv-role{font-size:11px;color:var(--dim);margin-top:2px}
+
+.cta-section{text-align:center;border-top:1px solid var(--border);padding:80px 24px}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
+.cta-section p{color:var(--muted);margin-bottom:36px;font-size:17px}
+
+footer{border-top:1px solid var(--border);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:var(--dim);font-size:13px;text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--muted)}
+.footer-copy{font-size:13px;color:var(--dim)}
+
+@media(max-width:600px){
+  nav{padding:16px 20px}
+  .hero{padding:60px 20px 60px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">PeakMinds <span>AI</span></a>
+  <div class="nav-links">
+    <a href="/pricing.html">Pricing</a>
+    <a href="#advisors">Advisors</a>
+    <a class="btn-gold" href="/pricing.html">Get Started</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge"><span class="pulse"></span> 17 World-Class Advisors — 24/7</div>
+  <h1>Your Personal<br><em>Board of Advisors.</em></h1>
+  <p class="sub">Ask Hormozi about your offer. Ask Naval about your moat. Ask Godin about your marketing. Get advice grounded in their real frameworks — instantly.</p>
+  <div class="cta-group">
+    <a href="/pricing.html" class="btn-gold btn-large">Start Free Trial</a>
+    <a href="/pricing.html" class="btn-ghost">See Pricing</a>
+  </div>
+  <p class="note">7-day money-back guarantee · No credit card required for free tier</p>
+  <div class="avatars">
+    <div class="av" style="background:#1a1a2e">AH</div>
+    <div class="av" style="background:#0f3460">SA</div>
+    <div class="av" style="background:#1b4332">NR</div>
+    <div class="av" style="background:#7f4f24">SG</div>
+    <div class="av" style="background:#023e8a">AC</div>
+    <div class="av" style="background:#006d77">NE</div>
+    <div class="av av-more">+11</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>How It Works</h2>
+  <p class="section-sub">Three steps to your personal boardroom.</p>
+  <div class="grid3">
+    <div class="card"><div class="card-n">01</div><div class="card-t">Choose Your Advisors</div><div class="card-d">Select from 17 world-class thinkers. Each responds in their real voice, grounded in their books and frameworks.</div></div>
+    <div class="card"><div class="card-n">02</div><div class="card-t">Describe Your Challenge</div><div class="card-d">Present your business problem — a pricing decision, a growth question, a product dilemma. Be as specific as you want.</div></div>
+    <div class="card"><div class="card-n">03</div><div class="card-t">Get Your Boardroom</div><div class="card-d">Each advisor weighs in with their distinct perspective. Real mental models applied to your specific situation.</div></div>
+  </div>
+</div>
+
+<div class="section" id="advisors">
+  <h2>Meet Your Board</h2>
+  <p class="section-sub">17 advisors. Every perspective you need.</p>
+  <div class="advisors-grid">
+    <div class="adv-card"><div class="adv-av" style="background:#1a1a2e">AH</div><div><div class="adv-name">Alex Hormozi</div><div class="adv-role">Offers & Revenue</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#0f3460">SA</div><div><div class="adv-name">Sam Altman</div><div class="adv-role">Startups & AI</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#533483">DM</div><div><div class="adv-name">Dan Martell</div><div class="adv-role">SaaS & Systems</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#1b4332">NR</div><div><div class="adv-name">Naval Ravikant</div><div class="adv-role">Wealth & Leverage</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#7f4f24">SG</div><div><div class="adv-name">Seth Godin</div><div class="adv-role">Marketing & Brand</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#023e8a">AC</div><div><div class="adv-name">Andrew Chen</div><div class="adv-role">Growth & Networks</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#3a0ca3">LR</div><div><div class="adv-name">Lenny Rachitsky</div><div class="adv-role">Product & Metrics</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#c9184a">LJ</div><div><div class="adv-name">Li Jin</div><div class="adv-role">Creator Economy</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#006d77">NE</div><div><div class="adv-name">Nir Eyal</div><div class="adv-role">Habits & Engagement</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#4a4e69">JZ</div><div><div class="adv-name">Julie Zhuo</div><div class="adv-role">Design & Leadership</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#212529">RS</div><div><div class="adv-name">Ramit Sethi</div><div class="adv-role">Pricing & Premium</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#1d3557">PJ</div><div><div class="adv-name">Paul Jarvis</div><div class="adv-role">Solopreneur</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#ff90e8;color:#1a1a1a">SL</div><div><div class="adv-name">Sahil Lavingia</div><div class="adv-role">Bootstrap & Profit</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#10002b">JC</div><div><div class="adv-name">James Currier</div><div class="adv-role">Network Effects</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#1b263b">JB</div><div><div class="adv-name">Josh Breinlinger</div><div class="adv-role">Marketplaces</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#370617">DS</div><div><div class="adv-name">David Sacks</div><div class="adv-role">SaaS & Virality</div></div></div>
+    <div class="adv-card"><div class="adv-av" style="background:#004b23">CW</div><div><div class="adv-name">Casey Winters</div><div class="adv-role">Growth & Retention</div></div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>Ready to meet your board?</h2>
+  <p>Start a session in under 60 seconds.</p>
+  <a href="/pricing.html" class="btn-gold btn-large">Get Started — It's Free</a>
+</div>
+
+<footer>
+  <a href="/" class="logo">PeakMinds <span>AI</span></a>
+  <div class="footer-links">
+    <a href="/pricing.html">Pricing</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/refund.html">Refund Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 PeakMinds AI. Not affiliated with named individuals.</p>
+</footer>
+</body>
+</html>
